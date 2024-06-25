@@ -1,0 +1,57 @@
+<div class="grid md:grid-cols-2 grid-cols-1">
+@for (experiencia of array_empresas; track $index) {
+<div class="container noselect mx-auto">
+    <div class="canvas">
+      <div class="tracker tr-1"></div>
+      <div class="tracker tr-2"></div>
+      <div class="tracker tr-3"></div>
+      <div class="tracker tr-4"></div>
+      <div class="tracker tr-5"></div>
+      <div class="tracker tr-6"></div>
+      <div class="tracker tr-7"></div>
+      <div class="tracker tr-8"></div>
+      <div class="tracker tr-9"></div>
+      <div class="tracker tr-10"></div>
+      <div class="tracker tr-11"></div>
+      <div class="tracker tr-12"></div>
+      <div class="tracker tr-13"></div>
+      <div class="tracker tr-14"></div>
+      <div class="tracker tr-15"></div>
+      <div class="tracker tr-16"></div>
+      <div class="tracker tr-17"></div>
+      <div class="tracker tr-18"></div>
+      <div class="tracker tr-19"></div>
+      <div class="tracker tr-20"></div>
+      <div class="tracker tr-21"></div>
+      <div class="tracker tr-22"></div>
+      <div class="tracker tr-23"></div>
+      <div class="tracker tr-24"></div>
+      <div class="tracker tr-25"></div>
+      <div id="card"> 
+        <div class="flex flex-col items-center mt-[2vh]">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden w-[75vw] max-w-sm">
+            <div class="{{experiencia.bg}} flex justify-center"><img class="h-35 object-cover mt-[3vh]" src="{{experiencia.img}}" alt="Empresa Logo"></div>
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-cyan-800">{{experiencia.titulo}}</h3>
+                <p class="text-gray-600">Fecha de inicio: <span class="text-cyan-800">{{experiencia.fecha_inicio}}</span></p>
+                <p class="text-gray-600">Fecha de fin:
+                  @if (experiencia.fecha_fin === 'Actualidad') {
+                    <span class="text-red-500">{{experiencia.fecha_fin}}</span>
+                  }@else {
+                    <span class="text-cyan-800">{{experiencia.fecha_fin}}</span>
+                  }
+                </p>
+                <h4 class="text-lg font-semibold text-cyan-800 mt-4 underline">Habilidades Aprendidas:</h4>
+                <ul class="list-disc list-inside text-gray-600 mt-2">
+                @for (habilidades of experiencia.aprendizaje; track $index) {
+                    <li>{{habilidades}}</li> 
+                }
+                </ul>
+            </div>
+            </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+}
+</div>

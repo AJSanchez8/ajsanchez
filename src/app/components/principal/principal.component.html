@@ -1,23 +1,31 @@
-<div class="flex flex-row mt-[4vh] justify-center">
+<!-- <div class="flex flex-row mt-[4vh] justify-center">
   <img src="./assets/gif/gif_dev.gif" alt="">
   <p class="text-cyan-800 font-medium text-3xl mt-[1vh] ml-[1vw] text-center">Antonio José Sánchez González </p>
 </div>
-<p class="text-center mt-[1vh]"><span class="text-red-400">Desarrollador Web</span> con experiencia en <span class="text-cyan-800 font-semibold">Desarrollo de productos de IA</span></p>
-<h2 class="text-2xl text-center mt-[2vh] text-cyan-800 font-thin">&#64;Redes sociales</h2>
-<div id="social" class="flex flex-row justify-center mx-auto  w-[35vw]">
-  @for (social of redes_sociales; track $index) {
-    <a class="hover:scale-105 duration-300 cursor-pointer" href="{{social.link}}" target="_blank">
-      <div class="bg-cyan-700 rounded-xl border-black  border flex flex-row justify-between p-2 m-[1vw]">
-        <img class="w-8 h-8" src="{{social.img}}" alt="">
-        <p class="self-center first-letter:uppercase font-normal">{{social.nombre}}</p>
-      </div>
-    </a>
-  }
+<p class="text-center mt-[1vh]"><span class="text-red-400 font-medium">Desarrollador Web FullStack</span> con experiencia en <span class="text-cyan-800 font-semibold">Desarrollo de productos de IA.</span></p> -->
+
+<div class="mt-[5vh]">
+  <p class="text-cyan-800 font-medium text-3xl mt-[1vh] ml-[1vw] text-center cursor-pointer underline">Experiencia como programador:</p>
 </div>
-<div (click)="gestionModal.openDialog_habilidades()" class="flex flex-row mt-[4vh] justify-center">
-  <img src="./assets/gif/skills.gif" alt="">
-  <p class="text-cyan-800 font-medium text-3xl mt-[1vh] ml-[1vw] text-center cursor-pointer">Habilidades </p>
+
+<!--Experiencia-->
+<app-cards-experiencia></app-cards-experiencia>
+
+<!--Experiencia en otros campos -->
+<div class="mt-[5vh]">
+  <p class="text-cyan-800 font-medium text-3xl mt-[1vh] ml-[1vw] text-center cursor-pointer underline">Experiencia en otros campos:</p>
 </div>
+<app-cards-no-relacionado></app-cards-no-relacionado>
+
+
+
+
+
+
+
+
+
+
 <!-- <div class="w-[75vw] mx-auto grid-cols-3 grid gap-2 p-5">
     @for (card of cards; track $index) {
     <mat-card class="bg-orange-200 duration-300 hover:scale-105 cursor-pointer w-72 h-96">
