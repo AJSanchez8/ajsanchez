@@ -23,7 +23,7 @@ export class CardsNoRelacionadoComponent {
     bg:''
   },
   {
-    img:'./assets/img/empresas/logo_junta.jpg',
+    img:'./assets/img/empresas/Logotipo_de_la_Junta_de_Andalucía_2020.svg.png',
     titulo:'Junta de Andalucía', 
     fecha_inicio:'15-06-2021',
     fecha_fin:'15-09-2021',
@@ -34,7 +34,7 @@ export class CardsNoRelacionadoComponent {
     bg:''
   },
   {
-    img:'./assets/img/empresas/logo_cooperacion2005.png',
+    img:'./assets/img/empresas/logoCooperacion2005.png',
     titulo:'COOPERACION 2005, S.L.', 
     fecha_inicio:'25-07-2017',
     fecha_fin:'01-06-2018',

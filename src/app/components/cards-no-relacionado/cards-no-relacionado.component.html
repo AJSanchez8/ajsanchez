@@ -1,31 +1,73 @@
-<div class="grid md:grid-cols-3 grid-cols-1 mx-auto mt-[3vh]">
-    @for (exp of array_empresas; track $index) {
-    <div class="flip-card mx-auto cursor-pointer bg-red-800">
-    <div class="flip-card-inner">
-        <div class="flip-card-front">
-            <p class="title">{{exp.titulo}}</p>
-            <p class="text-xs text-center text-slate-500">Descubre más</p>
-        </div>
-        <div class="flip-card-back">
-            <div class="flex flex-col items-center mt-[2vh]">
-                <div class="bg-white rounded-lg overflow-hidden w-[100vw] max-w-sm">
-                <div class="{{exp.bg}} flex justify-center"><img class="h-35 object-cover mt-[3vh]" src="{{exp.img}}" alt="Empresa Logo"></div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-cyan-800">{{exp.titulo}}</h3>
-                    <p class="text-gray-600">Fecha de inicio: <span class="text-cyan-800">{{exp.fecha_inicio}}</span></p>
-                    <p class="text-gray-600">Fecha de fin: <span class="text-cyan-800">{{exp.fecha_fin}}</span></p>
-                    <h4 class="text-lg font-semibold text-cyan-800 mt-2 underline">Trabajo realizado:</h4>
-                    <ul class="list-disc list-inside text-gray-600 mt-2">
-                    @for (habilidades of exp.aprendizaje; track $index) {
-                        <li>{{habilidades}}</li> 
-                    }
-                    </ul>
-                </div>
-                </div>
-            </div> 
-        </div>
-    </div>
-    </div>
-    }
+<style>
+  .multicolor-shadow {
+    position: relative;
+    z-index: 0;
+  }
+  .multicolor-shadow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 1rem;
+    padding: 2px;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5, #4ade80, #facc15, #fb7185);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    animation: pulseColors 5s linear infinite;
+  }
 
+  @keyframes pulseColors {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 400% 50%;
+    }
+  }
+
+  .image-container {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+    aspect-ratio: 16 / 9; /* mantiene proporción */
+  }
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* evita recortes y mantiene proporción */
+    transition: transform 0.5s ease;
+    image-rendering: auto;
+  }
+  .image-container:hover img {
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+  @for (empresa of array_empresas; track empresa.titulo) {
+    <div class="multicolor-shadow bg-white shadow-lg rounded-2xl overflow-hidden transition-transform hover:scale-[1.03] hover:shadow-2xl">
+      
+      <div class="image-container">
+        <img [src]="empresa.img" alt="{{ empresa.titulo }}">
+      </div>
+
+      <div class="p-5 flex flex-col justify-between h-full">
+        <div>
+          <h2 class="text-xl font-semibold text-gray-900 mb-2">{{ empresa.titulo }}</h2>
+          <p class="text-sm text-gray-500 mb-4">
+            {{ empresa.fecha_inicio }} &rarr; {{ empresa.fecha_fin }}
+          </p>
+          <ul class="list-disc list-inside text-gray-700 text-sm space-y-1">
+            @for (item of empresa.aprendizaje; track $index) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  }
 </div>
