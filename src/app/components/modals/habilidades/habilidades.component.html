@@ -1,0 +1,20 @@
+<div class=" bg-cyan-900  p-4">
+  <div class="flex justify-between items-center mb-4">
+    <h1 class="text-white text-2xl font-light">Habilidades</h1>
+    <p 
+      (click)="gestionModal.close_habilidades()" 
+      class="text-white font-bold text-xl cursor-pointer transition-colors duration-200"
+    >
+      x
+    </p>
+  </div>
+  
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    @for (skill of skills; track $index) {
+      <div class="flex items-center bg-white rounded-xl p-3 border border-green-500">
+        <img class="w-10 h-10 object-contain" src="{{skill.img}}" alt="{{skill.nombre}}">
+        <p class="ml-3 font-semibold text-gray-800">{{skill.nombre}}</p>
+      </div>
+    }
+  </div>
+</div>
